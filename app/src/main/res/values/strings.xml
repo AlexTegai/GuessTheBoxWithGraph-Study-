@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">guessTheBox</string>
+    <string name="open_box">Open Box</string>
+    <string name="options">Options</string>
+    <string name="about">About</string>
+    <string name="exit">Exit</string>
+    <string name="about_label">about</string>
+    <string name="about_the_application">About the application</string>
+    <string name="application_name">Application name:</string>
+    <string name="version_name">Version name:</string>
+    <string name="version_code">Version code:</string>
+    <string name="ok_button_title">OK</string>
 </resources>
