@@ -3,9 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v23/spinner_background.xml" value="0.175" />
+        <entry key="app/src/main/res/drawable/chevron_down.xml" value="0.175" />
+        <entry key="app/src/main/res/drawable/chevron_down_disabled.xml" value="0.175" />
+        <entry key="app/src/main/res/drawable/edit_text_foreground.xml" value="0.175" />
+        <entry key="app/src/main/res/drawable/form.xml" value="0.175" />
+        <entry key="app/src/main/res/drawable/spinner_background.xml" value="0.175" />
         <entry key="app/src/main/res/layout/activity_about.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/activity_box.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/activity_box_selection.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.28072916666666664" />
-        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.10555555555555556" />
+        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.2617704603407118" />
+        <entry key="app/src/main/res/layout/activity_options.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/item_spinner.xml" value="0.2947916666666667" />
       </map>
     </option>
   </component>

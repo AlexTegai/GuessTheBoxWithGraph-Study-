@@ -14,8 +14,8 @@ class AboutActivity : BaseActivity() {
         binding = ActivityAboutBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
         with(binding) {
-            versionNameTextView.text = Build.VERSION.CODENAME
-            versionCodeTextView.text = Build.VERSION.RELEASE
+            versionNameTextView.text = getString(R.string.version_name_result)
+            versionCodeTextView.text = getString(R.string.version_code_result)
             okButton.setOnClickListener { onOkPressed() }
         }
     }
