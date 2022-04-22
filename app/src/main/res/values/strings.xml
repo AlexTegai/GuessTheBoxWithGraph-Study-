@@ -26,4 +26,14 @@
     <string name="done_icon">Done icon</string>
     <string name="version_name_result">1.1</string>
     <string name="version_code_result">1</string>
+    <string name="box_selection">Box Selection</string>
+    <string name="options_label">Options</string>
+    <plurals name="boxes">
+        <item quantity="zero">%1$d boxes</item>
+        <item quantity="one">%1$d box</item>
+        <item quantity="two">%1$d boxes</item>
+        <item quantity="few">%1$d boxes</item>
+        <item quantity="many">%1$d boxes</item>
+        <item quantity="other">%1$d boxes</item>
+    </plurals>
 </resources>

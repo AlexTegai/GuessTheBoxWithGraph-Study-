@@ -11,12 +11,16 @@
         android:theme="@style/Theme.GuessTheBox">
         <activity
             android:name=".BoxSelectionActivity"
+            android:label="@string/box_selection"
+            android:parentActivityName=".MenuActivity"
             android:exported="false" />
         <activity
             android:name=".BoxActivity"
             android:exported="false" />
         <activity
             android:name=".OptionsActivity"
+            android:label="@string/options_label"
+            android:parentActivityName=".MenuActivity"
             android:exported="false" />
         <activity
             android:name=".MenuActivity"

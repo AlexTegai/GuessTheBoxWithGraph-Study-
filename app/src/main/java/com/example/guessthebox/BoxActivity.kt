@@ -1,11 +1,22 @@
 package com.example.guessthebox
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import com.example.guessthebox.databinding.ActivityBoxBinding
 
-class BoxActivity : AppCompatActivity() {
+class BoxActivity : BaseActivity() {
+    private lateinit var binding: ActivityBoxBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_box)
+        binding = ActivityBoxBinding.inflate(layoutInflater).also { setContentView(it.root) }
+
+        binding.toMainMenuButton.setOnClickListener { onToMainMenuPressed() }
+    }
+
+    private fun onToMainMenuPressed() {
+        val intent = Intent(this, MenuActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+        startActivity(intent)
     }
 }

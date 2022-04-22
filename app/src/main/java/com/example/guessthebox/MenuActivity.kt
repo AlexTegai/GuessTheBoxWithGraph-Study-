@@ -44,7 +44,7 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private fun onOpenButtonPressed() {
-        val intent = Intent(this, BoxActivity::class.java)
+        val intent = Intent(this, BoxSelectionActivity::class.java)
         intent.putExtra(BoxSelectionActivity.EXTRA_OPTIONS, options)
         startActivity(intent)
     }
