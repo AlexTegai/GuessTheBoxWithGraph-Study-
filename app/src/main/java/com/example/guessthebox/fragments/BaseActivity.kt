@@ -1,4 +1,4 @@
-package com.example.guessthebox
+package com.example.guessthebox.fragments
 
 import androidx.appcompat.app.AppCompatActivity
 

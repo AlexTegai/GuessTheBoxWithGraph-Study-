@@ -10,31 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GuessTheBox">
         <activity
-            android:name=".BoxSelectionActivity"
-            android:label="@string/box_selection"
-            android:parentActivityName=".MenuActivity"
-            android:exported="false" />
-        <activity
-            android:name=".BoxActivity"
-            android:exported="false" />
-        <activity
-            android:name=".OptionsActivity"
-            android:label="@string/options_label"
-            android:parentActivityName=".MenuActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MenuActivity"
-            android:exported="true">
+            android:name=".fragments.MainActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".AboutActivity"
-            android:label="@string/about"
-            android:parentActivityName=".MenuActivity" />
+
     </application>
 
 </manifest>

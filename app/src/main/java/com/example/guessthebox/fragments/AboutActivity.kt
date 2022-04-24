@@ -1,8 +1,8 @@
-package com.example.guessthebox
+package com.example.guessthebox.fragments
 
 
-import android.os.Build
 import android.os.Bundle
+import com.example.guessthebox.R
 import com.example.guessthebox.databinding.ActivityAboutBinding
 
 class AboutActivity : BaseActivity() {

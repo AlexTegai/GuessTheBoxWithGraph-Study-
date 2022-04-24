@@ -1,9 +1,10 @@
-package com.example.guessthebox
+package com.example.guessthebox.fragments
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.example.guessthebox.R
 import com.example.guessthebox.databinding.ActivityBoxSelectionBinding
 import com.example.guessthebox.databinding.ItemBoxBinding
 import com.example.guessthebox.model.Options

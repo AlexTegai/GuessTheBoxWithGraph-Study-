@@ -1,4 +1,4 @@
-package com.example.guessthebox
+package com.example.guessthebox.fragments
 
 import android.content.Intent
 import android.os.Bundle

@@ -1,9 +1,10 @@
-package com.example.guessthebox
+package com.example.guessthebox.fragments
 
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import com.example.guessthebox.R
 import com.example.guessthebox.databinding.ActivityOptionsBinding
 import com.example.guessthebox.model.Options
 import kotlin.IllegalArgumentException

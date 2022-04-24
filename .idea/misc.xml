@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/drawable/edit_text_foreground.xml" value="0.175" />
         <entry key="app/src/main/res/drawable/form.xml" value="0.175" />
         <entry key="app/src/main/res/drawable/ic_done.xml" value="0.175" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.175" />
         <entry key="app/src/main/res/drawable/spinner_background.xml" value="0.175" />
         <entry key="app/src/main/res/layout/activity_about.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_box.xml" value="0.2947916666666667" />
@@ -19,6 +20,7 @@
         <entry key="app/src/main/res/layout/activity_options.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/item_box.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/item_spinner.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.175" />
       </map>
     </option>
   </component>
