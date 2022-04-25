@@ -16,15 +16,15 @@ interface Navigator {
 
     fun showOptionsScreen(options: Options)
 
-    fun showAboutScreen(options: Options)
+    fun showAboutScreen()
 
-    fun showBoxCongratulationsScreen(options: Options)
+    fun showBoxCongratulationsScreen()
 
-    fun goBack(options: Options)
+    fun goBack()
 
-    fun goToMenu(options: Options)
+    fun goToMenu()
 
     fun <T : Parcelable> publishResult(result: T)
 
-    fun <T : Parcelable> listenResult(clazz: Class<T>, owner: LifecycleOwner, litener: ResultListener<T>)
+    fun <T : Parcelable> listenResult(clazz: Class<T>, owner: LifecycleOwner, listener: ResultListener<T>)
 }
