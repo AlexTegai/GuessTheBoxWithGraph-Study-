@@ -1,4 +1,4 @@
-package com.example.guessthebox.fragments
+package com.example.guesstheboxwithgraph.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,14 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import com.example.guessthebox.R
-import com.example.guessthebox.databinding.FragmentOptionsBinding
-import com.example.guessthebox.fragments.contract.CustomAction
-import com.example.guessthebox.fragments.contract.HasCustomAction
-import com.example.guessthebox.fragments.contract.HasCustomTitle
-import com.example.guessthebox.fragments.contract.navigator
-import com.example.guessthebox.model.Options
+import com.example.guesstheboxwithgraph.R
+import com.example.guesstheboxwithgraph.databinding.FragmentOptionsBinding
+import com.example.guesstheboxwithgraph.fragments.contract.CustomAction
+import com.example.guesstheboxwithgraph.fragments.contract.HasCustomAction
+import com.example.guesstheboxwithgraph.fragments.contract.HasCustomTitle
+import com.example.guesstheboxwithgraph.fragments.contract.navigator
+import com.example.guesstheboxwithgraph.model.Options
 import kotlin.IllegalArgumentException
 
 class OptionsFragment : Fragment(), HasCustomAction, HasCustomTitle {
@@ -105,13 +106,7 @@ class OptionsFragment : Fragment(), HasCustomAction, HasCustomTitle {
         private const val ARGS_OPTIONS = "ARGS_OPTIONS"
         private const val KEY_OPTIONS = "KEY_OPTIONS"
 
-        fun newInstance(options: Options): OptionsFragment {
-            val args = Bundle()
-            args.putParcelable(ARGS_OPTIONS, options)
-            val fragment = OptionsFragment()
-            fragment.arguments = args
-            return fragment
-        }
+        fun createArgs(options: Options) = bundleOf(ARGS_OPTIONS to options)
     }
 
     class BoxCountItem(

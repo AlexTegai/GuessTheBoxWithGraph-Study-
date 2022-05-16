@@ -1,9 +1,9 @@
-package com.example.guessthebox.fragments.contract
+package com.example.guesstheboxwithgraph.fragments.contract
 
 import android.os.Parcelable
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
-import com.example.guessthebox.model.Options
+import com.example.guesstheboxwithgraph.model.Options
 
 typealias ResultListener<T> = (T) -> Unit
 

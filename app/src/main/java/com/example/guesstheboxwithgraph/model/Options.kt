@@ -1,4 +1,4 @@
-package com.example.guessthebox.model
+package com.example.guesstheboxwithgraph.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
