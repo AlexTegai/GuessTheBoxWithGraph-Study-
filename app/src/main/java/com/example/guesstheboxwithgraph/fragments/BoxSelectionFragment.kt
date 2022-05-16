@@ -1,20 +1,22 @@
-package com.example.guessthebox.fragments
+package com.example.guesstheboxwithgraph.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import com.example.guessthebox.R
-import com.example.guessthebox.databinding.FragmentBoxSelectionBinding
-import com.example.guessthebox.databinding.ItemBoxBinding
-import com.example.guessthebox.fragments.contract.HasCustomTitle
-import com.example.guessthebox.fragments.contract.navigator
-import com.example.guessthebox.model.Options
+import com.example.guesstheboxwithgraph.R
+import com.example.guesstheboxwithgraph.databinding.FragmentBoxSelectionBinding
+import com.example.guesstheboxwithgraph.databinding.ItemBoxBinding
+import com.example.guesstheboxwithgraph.fragments.contract.HasCustomTitle
+import com.example.guesstheboxwithgraph.fragments.contract.navigator
+import com.example.guesstheboxwithgraph.model.Options
 import kotlin.random.Random
 
 class BoxSelectionFragment : Fragment(), HasCustomTitle {
+
     private lateinit var binding: FragmentBoxSelectionBinding
     private lateinit var options: Options
 
@@ -37,6 +39,7 @@ class BoxSelectionFragment : Fragment(), HasCustomTitle {
         createBoxes()
         return binding.root
     }
+
     override fun getTitleRes(): Int = R.string.select_box
 
     private fun createBoxes() {
@@ -66,12 +69,6 @@ class BoxSelectionFragment : Fragment(), HasCustomTitle {
         private const val ARGS_OPTIONS = "ARGS_OPTIONS"
         private const val KEY_INDEX = "KEY_INDEX"
 
-        fun newInstance(options: Options): BoxSelectionFragment {
-            val args = Bundle()
-            args.putParcelable(ARGS_OPTIONS, options)
-            val fragment = BoxSelectionFragment()
-            fragment.arguments = args
-            return fragment
-        }
+        fun createArgs(options: Options) = bundleOf(ARGS_OPTIONS to options)
     }
 }

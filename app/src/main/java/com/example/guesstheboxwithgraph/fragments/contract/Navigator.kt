@@ -7,11 +7,12 @@ import com.example.guesstheboxwithgraph.model.Options
 
 typealias ResultListener<T> = (T) -> Unit
 
-fun Fragment.navigator() : Navigator {
+fun Fragment.navigator(): Navigator {
     return requireActivity() as Navigator
 }
 
 interface Navigator {
+
     fun showBoxSelectionScreen(options: Options)
 
     fun showOptionsScreen(options: Options)
@@ -26,5 +27,10 @@ interface Navigator {
 
     fun <T : Parcelable> publishResult(result: T)
 
-    fun <T : Parcelable> listenResult(clazz: Class<T>, owner: LifecycleOwner, listener: ResultListener<T>)
+    fun <T : Parcelable> listenResult(
+        clazz: Class<T>,
+        owner: LifecycleOwner,
+        listener: ResultListener<T>
+    )
+
 }

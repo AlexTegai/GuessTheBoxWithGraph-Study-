@@ -1,4 +1,4 @@
-package com.example.guessthebox
+package com.example.guesstheboxwithgraph
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

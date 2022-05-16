@@ -1,4 +1,4 @@
-package com.example.guessthebox.fragments
+package com.example.guesstheboxwithgraph.fragments
 
 
 import android.os.Bundle
@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.guessthebox.R
-import com.example.guessthebox.databinding.FragmentAboutBinding
-import com.example.guessthebox.fragments.contract.HasCustomTitle
-import com.example.guessthebox.fragments.contract.navigator
+import com.example.guesstheboxwithgraph.R
+import com.example.guesstheboxwithgraph.databinding.FragmentAboutBinding
+import com.example.guesstheboxwithgraph.fragments.contract.HasCustomTitle
+import com.example.guesstheboxwithgraph.fragments.contract.navigator
 
 class AboutFragment : Fragment(), HasCustomTitle {
 

@@ -1,4 +1,4 @@
-package com.example.guessthebox
+package com.example.guesstheboxwithgraph
 
 import org.junit.Test
 

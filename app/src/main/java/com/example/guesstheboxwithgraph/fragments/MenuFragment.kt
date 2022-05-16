@@ -1,15 +1,16 @@
-package com.example.guessthebox.fragments
+package com.example.guesstheboxwithgraph.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.guessthebox.databinding.FragmentMenuBinding
-import com.example.guessthebox.fragments.contract.navigator
-import com.example.guessthebox.model.Options
+import com.example.guesstheboxwithgraph.databinding.FragmentMenuBinding
+import com.example.guesstheboxwithgraph.fragments.contract.navigator
+import com.example.guesstheboxwithgraph.model.Options
 
 class MenuFragment : Fragment() {
+
     private lateinit var binding: FragmentMenuBinding
     private lateinit var options: Options
 

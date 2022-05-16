@@ -1,4 +1,4 @@
-package com.example.guessthebox
+package com.example.guesstheboxwithgraph
 
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -13,17 +13,20 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.LifecycleOwner
-import com.example.guessthebox.databinding.ActivityMainBinding
-import com.example.guessthebox.fragments.*
-import com.example.guessthebox.fragments.contract.*
-import com.example.guessthebox.model.Options
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.navOptions
+import com.example.guesstheboxwithgraph.databinding.ActivityMainBinding
+import com.example.guesstheboxwithgraph.fragments.*
+import com.example.guesstheboxwithgraph.fragments.contract.*
+import com.example.guesstheboxwithgraph.model.Options
 
 class MainActivity : AppCompatActivity(), Navigator {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
-    private val currentFragment: Fragment?
-        get() = supportFragmentManager.findFragmentById(R.id.fragmentContainer)
+    private var currentFragment: Fragment? = null
 
     private val fragmentListener = object : FragmentManager.FragmentLifecycleCallbacks() {
         override fun onFragmentViewCreated(
@@ -33,6 +36,8 @@ class MainActivity : AppCompatActivity(), Navigator {
             savedInstanceState: Bundle?
         ) {
             super.onFragmentViewCreated(fm, f, v, savedInstanceState)
+            if (f is NavHostFragment) return
+            currentFragment = f
             updateUi()
         }
     }
@@ -42,14 +47,12 @@ class MainActivity : AppCompatActivity(), Navigator {
         binding = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
         setSupportActionBar(binding.toolbar)
 
-        if (savedInstanceState == null) {
-            supportFragmentManager
-                .beginTransaction()
-                .add(R.id.fragmentContainer, MenuFragment())
-                .commit()
-        }
+        val navHost = supportFragmentManager.findFragmentById(R.id.fragmentContainer)
+                as NavHostFragment
 
-        supportFragmentManager.registerFragmentLifecycleCallbacks(fragmentListener, false)
+        navController = navHost.navController
+
+        supportFragmentManager.registerFragmentLifecycleCallbacks(fragmentListener, true)
     }
 
     override fun onDestroy() {
@@ -62,25 +65,22 @@ class MainActivity : AppCompatActivity(), Navigator {
         return true
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
-    }
+    override fun onSupportNavigateUp() = navController.navigateUp() || super.onSupportNavigateUp()
 
     override fun showBoxSelectionScreen(options: Options) {
-        launchFragment(BoxSelectionFragment.newInstance(options))
+        launchDestination(R.id.boxSelectionFragment, BoxSelectionFragment.createArgs(options))
     }
 
     override fun showOptionsScreen(options: Options) {
-        launchFragment(OptionsFragment.newInstance(options))
+        launchDestination(R.id.optionsFragment, OptionsFragment.createArgs(options))
     }
 
     override fun showAboutScreen() {
-        launchFragment(AboutFragment())
+        launchDestination(R.id.aboutFragment)
     }
 
     override fun showBoxCongratulationsScreen() {
-        launchFragment(BoxFragment())
+        launchDestination(R.id.boxFragment)
     }
 
     override fun goBack() {
@@ -88,15 +88,13 @@ class MainActivity : AppCompatActivity(), Navigator {
     }
 
     override fun goToMenu() {
-        supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        navController.popBackStack(R.id.menuFragment, false)
     }
 
     override fun <T : Parcelable> publishResult(result: T) {
         supportFragmentManager.setFragmentResult(
             result.javaClass.name,
             bundleOf(KEY_RESULT to result)
-//            val bundle = Bundle()
-//            bundle.putParcelable(KEY_RESULT,result)
         )
     }
 
@@ -122,12 +120,10 @@ class MainActivity : AppCompatActivity(), Navigator {
             binding.toolbar.title = getString(R.string.fragment_navigation_example)
         }
 
-        if (supportFragmentManager.backStackEntryCount > 0){
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            supportActionBar?.setDisplayShowHomeEnabled(true)
-        } else {
+        if (navController.currentDestination?.id == navController.graph.startDestinationId) {
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
-            supportActionBar?.setDisplayShowHomeEnabled(false)
+        } else {
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
 
         if (fragment is HasCustomAction) {
@@ -150,12 +146,20 @@ class MainActivity : AppCompatActivity(), Navigator {
         }
     }
 
-    private fun launchFragment(fragment: Fragment) {
-        supportFragmentManager
-            .beginTransaction()
-            .addToBackStack(null)
-            .replace(R.id.fragmentContainer, fragment)
-            .commit()
+    private fun launchDestination(destination: Int, args: Bundle? = null) {
+        navController.navigate(
+            destination,
+            args,
+            navOptions {
+                anim {
+                    enter = R.anim.slide_in
+                    exit = R.anim.fade_out
+                    popEnter = R.anim.fade_in
+                    popExit = R.anim.slide_out
+
+                }
+            }
+        )
     }
 
     companion object {

@@ -10,6 +10,7 @@ data class Options(
 ) : Parcelable {
 
     companion object {
-         val DEFAULT = Options(3, false)
+        val DEFAULT = Options(3, false)
     }
+
 }

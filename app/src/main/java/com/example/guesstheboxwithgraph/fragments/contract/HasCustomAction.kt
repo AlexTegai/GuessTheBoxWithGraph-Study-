@@ -1,6 +1,4 @@
-package com.example.guessthebox.fragments.contract
-
-import android.media.session.PlaybackState
+package com.example.guesstheboxwithgraph.fragments.contract
 
 interface HasCustomAction {
     fun getCustomAction(): CustomAction
